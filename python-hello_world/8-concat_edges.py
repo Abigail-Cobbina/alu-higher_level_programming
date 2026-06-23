@@ -2,4 +2,4 @@
 str1 = "object-oriented programming with Python"
 str2 = "is fun and cool!"
 str3 = "is very easy"
-print(str1)
+print(str1[:26] + str1[26:])
