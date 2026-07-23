@@ -102,4 +102,7 @@ class Rectangle:
         Returns:
             Rectangle: a new square Rectangle instance.
         """
-        return cls(size, size)
+        new_rectangle = cls()
+        new_rectangle.width = size
+        new_rectangle.height = size
+        return new_rectangle
