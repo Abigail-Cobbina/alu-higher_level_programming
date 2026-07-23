@@ -1,4 +1,3 @@
-# 0-rectangle.py
 #!/usr/bin/python3
 """Module that defines an empty Rectangle class."""
 

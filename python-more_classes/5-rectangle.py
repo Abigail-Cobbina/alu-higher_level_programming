@@ -1,4 +1,3 @@
-# 5-rectangle.py
 #!/usr/bin/python3
 """Module that defines a Rectangle class with instance deletion."""
 
