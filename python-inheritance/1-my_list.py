@@ -1,6 +1,7 @@
+#!/usr/bin/python3
 """Module documentation."""
 
-#!/usr/bin/python3
+
 class MyList(list):
     """Class that inherits from list."""
 
