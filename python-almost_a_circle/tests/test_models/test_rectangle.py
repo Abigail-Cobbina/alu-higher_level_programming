@@ -227,6 +227,34 @@ class TestRectangle(unittest.TestCase):
         result = Rectangle.load_from_file()
         self.assertEqual(len(result), 1)
 
+def test_rectangle_str_width(self):
+        """Test Rectangle('1', 2) raises TypeError."""
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+
+    def test_to_dictionary_exists(self):
+        """Test to_dictionary returns correct keys."""
+        r = Rectangle(10, 2, 1, 9)
+        d = r.to_dictionary()
+        self.assertIn('width', d)
+        self.assertIn('height', d)
+        self.assertIn('x', d)
+        self.assertIn('y', d)
+        self.assertIn('id', d)
+
+    def test_save_to_file_none_exists(self):
+        """Test Rectangle.save_to_file(None) creates file."""
+        import os
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_save_to_file_rectangle(self):
+        """Test Rectangle.save_to_file([Rectangle(1, 2)])."""
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        with open("Rectangle.json", "r") as f:
+            content = f.read()
+        self.assertIn("width", content)
 
 if __name__ == "__main__":
     unittest.main()

@@ -181,6 +181,23 @@ class TestSquare(unittest.TestCase):
         result = Square.load_from_file()
         self.assertEqual(len(result), 1)
 
+def test_square_str_size(self):
+        """Test Square('1') raises TypeError."""
+        with self.assertRaises(TypeError):
+            Square("1")
+
+    def test_save_to_file_none_exists(self):
+        """Test Square.save_to_file(None) creates file."""
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_save_to_file_square(self):
+        """Test Square.save_to_file([Square(1)])."""
+        Square.save_to_file([Square(1)])
+        with open("Square.json", "r") as f:
+            content = f.read()
+        self.assertIn("size", content)
 
 if __name__ == "__main__":
     unittest.main()
