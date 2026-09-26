@@ -7,8 +7,10 @@ request(process.argv[2], function (err, response, body) {
     const films = JSON.parse(body).results;
     let count = 0;
     for (let i = 0; i < films.length; i++) {
-      if (films[i].characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-        count++;
+      for (let j = 0; j < films[i].characters.length; j++) {
+        if (films[i].characters[j].includes('/18/')) {
+          count++;
+        }
       }
     }
     console.log(count);
